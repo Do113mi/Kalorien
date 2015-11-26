@@ -11,8 +11,11 @@
         <input type="text" size="24" maxlength="50"
                name="ID"><br><br>
         Dein Passwort:<br>
-        <input type="password" size="24" minlength="5" maxlength="50"
-               name="passwort"><br><br>
+        <input type="password" size="24" minlength="12" maxlength="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+               name="passwort"><br>
+        (min. 12 Zeichen)
+        
+        <br>
         Passwort wiederholen:<br>
         <input type="password" size="24" maxlength="50"
                name="passwort2"><br><br>
