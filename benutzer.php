@@ -13,7 +13,7 @@
         Dein Passwort:<br>
         <input type="password" size="24" minlength="12" maxlength="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                name="passwort"><br>
-        min eine Zahl, Groß/Klein-Buchstabe und 12 Zeichen
+        
         
         <br>
         Passwort wiederholen:<br>
