@@ -11,7 +11,7 @@
         <input type="text" size="24" maxlength="50"
                name="ID"><br><br>
         Dein Passwort:<br>
-        <input type="password" size="24" maxlength="50"
+        <input type="password" size="24" minlength="5" maxlength="50"
                name="passwort"><br><br>
         Passwort wiederholen:<br>
         <input type="password" size="24" maxlength="50"
