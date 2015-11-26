@@ -8,12 +8,12 @@
     <form action="benutzer.php" method="post">
         <h2>Registrierung</h2>
         Dein Username:<br>
-        <input type="text" size="24" maxlength="50"
+        <input type="text" size="24" minlength="5" maxlength="50"
                name="ID"><br><br>
         Dein Passwort:<br>
         <input type="password" size="24" minlength="12" maxlength="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                name="passwort"><br>
-        (min eine Zahl, ein Groß/Klein-Buchstabe und 12 Zeichen)
+        min eine Zahl, Groß/Klein-Buchstabe und 12 Zeichen
         
         <br>
         Passwort wiederholen:<br>
