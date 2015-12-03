@@ -75,11 +75,26 @@ if (isset($_POST['Submit'])) {
         echo "Bitte Benutzername und Passwort eingeben";
     }
 }
+
+
+// Funktion die Passwort mit Hash kombiniert und den so erzeugten hash zurückgibt
+function saltPassword($password, $salt)
+{
+     return hash('sha256', $password . $salt);
+}
+
+// Prüfung (beispielhaft)
+$saltedHash = "SELECT passwort FROM benutzerlogin WHERE ID LIKE '$ID' LIMIT 1"; // Fiktive Funktion um salted Hash aus der Datenbank zu laden
+$salt = $ID; //get_user_id($_POST['id']); // Fiktive Funktion um UserID abzurufen
+
+if ($saltedHash == saltPassword($_POST['password'], $salt)) // Prüfung mit Salt
+{
+     echo "Passwort stimmt überein";
+}
+
+
 /*
 mysqli_close($connection);
  * s
  */
 ?>
-
-
-
