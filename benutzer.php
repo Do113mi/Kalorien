@@ -61,7 +61,7 @@ $password . ' : ' . $saltedHash . ' (Salt: ' . $salt . ')';
 // Funktion die Passwort mit Hash kombiniert und den so erzeugten hash zurückgibt
 function saltPassword($password, $salt)
 {
-     return hash('sha256', $password . $salt);
+     return crypt('sha256', $password . $salt); //hash()
 }
 
 
