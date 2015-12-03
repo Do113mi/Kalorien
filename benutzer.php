@@ -47,24 +47,21 @@ $passwort2 = filter_input(INPUT_POST, "passwort2");
 $vorname = filter_input(INPUT_POST, "vorname");
 $nachname = filter_input(INPUT_POST, "nachname");
 
-/*
-  if($passwort != $passwort2 OR $ID == "" OR $passwort == "")
-  {
-  echo "Eingabefehler. Bitte alle Felder korekt ausfüllen. <a href=\"benutzer.html\">Zurück</a>";
-  exit;
-  }
- */
 
-/*
-  $passwort = $_POST['passwort'];
-  $salt_str = 'musta126';
+// Funktion die Passwort mit Hash kombiniert und den so erzeugten hash zurückgibt
+function saltPassword($password, $salt)
+{
+     return hash('sha256', $password . $salt);
+}
 
- */
+// Erzeugung von Passwort-Hash mit Salt
+$password = $passwort;
+$userID   = $ID; // Die UserID dient hier als einfache Möglichkeit für den Salt (hier als Beispiel 5121)
+$salt = $userID;
+$saltedHash    = saltPassword($password, $salt);
+echo $password . ' : ' . $saltedHash . ' (Salt: ' . $salt . ')';
 
-/*
-  $gesaltetes_passwort = md5($salt_str . $passwort);
- * 
- */
+
 
 $abfrage="SELECT ID FROM benutzerlogin WHERE ID LIKE '$ID'";
 $result = mysqli_query($connection->myconn, $abfrage);
@@ -72,7 +69,7 @@ $anzahl = mysqli_num_rows($result);
 if (isset($_POST['Submit'])) {
 
     if ($anzahl == 0) {
-        $eintrag = "INSERT INTO benutzerlogin (ID, passwort, vorname, nachname) VALUES ('$ID', '$passwort', '$vorname', '$nachname')";
+        $eintrag = "INSERT INTO benutzerlogin (ID, passwort, vorname, nachname) VALUES ('$ID', '$password', '$vorname', '$nachname')";
         $eintragen = mysqli_query($connection->myconn, $eintrag);
 
         if ($eintragen == true) {
@@ -92,20 +89,6 @@ if (isset($_POST['Submit'])) {
 
 
 
-
-
-// Funktion die Passwort mit Hash kombiniert und den so erzeugten hash zurückgibt
-function saltPassword($password, $salt)
-{
-     return hash('sha256', $password . $salt);
-}
-
-// Erzeugung von Passwort-Hash mit Salt
-$password = $passwort;
-$userID   = $ID; // Die UserID dient hier als einfache Möglichkeit für den Salt (hier als Beispiel 5121)
-$salt = $userID;
-$saltedHash    = saltPassword($password, $salt);
-echo $password . ' : ' . $saltedHash . ' (Salt: ' . $salt . ')';
 
 
 ?>
