@@ -48,18 +48,21 @@ $vorname = filter_input(INPUT_POST, "vorname");
 $nachname = filter_input(INPUT_POST, "nachname");
 
 
-// Funktion die Passwort mit Hash kombiniert und den so erzeugten hash zurückgibt
-function saltPassword($password, $salt)
-{
-     return hash('sha256', $password . $salt);
-}
+
 
 // Erzeugung von Passwort-Hash mit Salt
 $password = $passwort;
 $userID   = $ID; // Die UserID dient hier als einfache Möglichkeit für den Salt (hier als Beispiel 5121)
 $salt = $userID;
 $saltedHash    = saltPassword($password, $salt);
-echo $password . ' : ' . $saltedHash . ' (Salt: ' . $salt . ')';
+$password . ' : ' . $saltedHash . ' (Salt: ' . $salt . ')';
+
+
+// Funktion die Passwort mit Hash kombiniert und den so erzeugten hash zurückgibt
+function saltPassword($password, $salt)
+{
+     return hash('sha256', $password . $salt);
+}
 
 
 
