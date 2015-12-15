@@ -67,7 +67,7 @@ if(isset($_POST['update']))
                 }
                 else
                 {
-                    echo "Fehler beim Update. <a href=\"edit.php\"></a>";
+                    echo "Fehler beim Update. <a href=\"edituser.php\"></a>";
                 }
 	}
 
@@ -76,11 +76,11 @@ if(isset($_POST['update']))
 	<a href="anzeige3.php">Home</a>
 	<br/><br/>
 	
-	<form name="form1" method="post" action="edit.php">
+	<form name="form1" method="post" action="edituser.php">
 		<table border="0">
 			<tr> 
                             <td>
-                                <?php echo $bez; ?>
+                                <?php echo $id; ?>
                                 <?php echo "" . $_SESSION['ID']; ?>
                                 
                             </td>
@@ -88,7 +88,7 @@ if(isset($_POST['update']))
                         <tr>
 				<td>Daten</td>
                                 <td>
-                                    <input type="hidden" name="bez2" value=<?php echo '"'.$bez.'"';?>/>
+                                    <input type="hidden" name="bez2" value=<?php echo '"'.$id.'"';?>/>
                                     <td><input type="hidden" name="gewicht" value=<?php echo $gewicht;?>>
                                         <td><input type="hidden" name="training" value=<?php echo $training;?>/>
                                             <td><input type="hidden" name="ziel" value=<?php echo $ziel;?>/>
