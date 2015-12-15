@@ -22,7 +22,7 @@ include "mysql.php";
 //getting id from url
 if(isset($_GET['id']))
 {
-    $id = $_GET['fatih'];    
+    $id = $_GET['id'];    
     
 }
 else
