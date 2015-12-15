@@ -17,6 +17,9 @@
 <a href="kalorienberechnung.php">Kalorien</a>
 </li>
 <li>
+    <a href="edituser.php">Userdaten</a>
+</li>
+<li>
 <a href="logout.php">Logout</a>
 </li>
 </ul>
