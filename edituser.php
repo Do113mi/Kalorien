@@ -62,7 +62,7 @@ if(isset($_POST['update']))
                 $abfrage2= "UPDATE benutzer SET gewicht='$gewicht', training='$training', ziel='$ziel'";
 		$result2 = mysqli_query($connection->myconn, $abfrage2);
 		if ($result2 == true) {
-                    header('Location: anzeige3.php');
+                   // header('Location: anzeige3.php');
 		//redirectig to the display page. In our case, it is index.php
                 }
                 else
