@@ -62,7 +62,7 @@ if(isset($_POST['update']))
                 $abfrage2= "UPDATE benutzer SET gewicht='$gewicht', training='$training', ziel='$ziel'";
 		$result2 = mysqli_query($connection->myconn, $abfrage2);
 		if ($result2 == true) {
-                    header('Location: anzeige3.php');
+                    //header('Location: anzeige3.php');
 		//redirectig to the display page. In our case, it is index.php
                 }
                 else
@@ -88,7 +88,7 @@ if(isset($_POST['update']))
                         <tr>
 				<td>Daten</td>
                                 <td>
-                                    <input type="hidden" name="bez2" value=<?php echo '"'.$id.'"';?>/>
+                                    <input type="hidden" name="id" value=<?php echo '"'.$id.'"';?>/>
                                     <td><input type="hidden" name="gewicht" value=<?php echo $gewicht;?>>
                                         <td><input type="hidden" name="training" value=<?php echo $training;?>/>
                                             <td><input type="hidden" name="ziel" value=<?php echo $ziel;?>/>
